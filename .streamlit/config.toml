@@ -10,3 +10,14 @@ secondaryBackgroundColor = "#3a3b37"
 
 # Color used for almost all text.
 textColor = "#fff"
+
+[server]
+headless = true
+
+[pages]
+order = [
+    "Overview",
+    "Experience",
+    "Portfolio",
+    "Assistant"
+]

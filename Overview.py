@@ -2,6 +2,7 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 import json
+
 from utils import get_logo, load_css, display_hero_section, display_logos, display_skills, apply_markdown_styling, thick_line, blank_space
 
 # --- PATH SETTINGS ---
@@ -25,6 +26,7 @@ During my tenure at KTH, I've been involved in various projects and activities, 
 EMAIL = "filip.johan.stal@gmail.com"
 
 def main():
+    
     st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON, layout="centered")
 
     # --- LOAD CSS, PDF & PROFILE PIC ---
