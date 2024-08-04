@@ -83,18 +83,20 @@ def write_markdown_centered(text):
 
 def display_logos(logos_json):
         blank_space(1)
+        st.write('\n')
+        misc_logos = logos_json.get("misc", {})
+        cols_2 = st.columns(len(misc_logos))
+        for index, platform in enumerate(misc_logos.keys()):
+            with cols_2[index]:
+                st.markdown(get_logo(platform, logos_json, class_name="misc-logo", type="misc"), unsafe_allow_html=True)        
+        
         social_logos = logos_json.get("social", {})
         cols = st.columns(len(social_logos)+2)
         for index, platform in enumerate(social_logos.keys()):
             with cols[index+1]:
                 st.markdown(get_logo(platform, logos_json, class_name="social-logo", type="social"), unsafe_allow_html=True)
         
-        st.write('\n')
-        misc_logos = logos_json.get("misc", {})
-        cols_2 = st.columns(len(misc_logos))
-        for index, platform in enumerate(misc_logos.keys()):
-            with cols_2[index]:
-                st.markdown(get_logo(platform, logos_json, class_name="misc-logo", type="misc"), unsafe_allow_html=True)
+
 
 
 def display_contact_info():
