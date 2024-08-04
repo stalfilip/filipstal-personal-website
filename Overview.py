@@ -2,7 +2,7 @@ from pathlib import Path
 import streamlit as st
 from PIL import Image
 import json
-from utils import get_logo, load_css, display_hero_section, display_logos, display_contact_info, display_education, display_experience, display_activities, display_skills, display_diplomas, apply_markdown_styling, thick_line, blank_space
+from utils import get_logo, load_css, display_hero_section, display_logos, display_skills, apply_markdown_styling, thick_line, blank_space
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -17,9 +17,9 @@ PAGE_ICON = ":wave:"
 NAME = "Filip Stål"
 
 DESCRIPTION = """
-Physics student with a passion for software & finance.
+Physics student with a passion for software and finance.
 
-During my tenure at KTH, I've been involved in various projects and activities, ranging from free lancing as software engineer to being a part of the student union.
+During my tenure at KTH, I've been involved in various projects and activities, ranging from freelancing as a software engineer to several internships at well-known companies.
 """
 
 EMAIL = "filip.johan.stal@gmail.com"
@@ -50,18 +50,6 @@ def main():
     display_skills()
     blank_space()
     thick_line()
-
-    with st.expander(label="Academic Record", expanded=False):
-        display_education(logos_json)       
-        display_diplomas()
-
-    with st.expander(label="Experience"):
-        display_experience(logos_json)
-        
-    with st.expander(label="Activities"):
-        display_activities(logos_json)
-        
-    # display_skills()
 
 if __name__ == "__main__":
     main()

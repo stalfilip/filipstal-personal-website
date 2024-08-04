@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 
-
 def thick_line(color="black", size=1):
     colors = {
         "black": "#000000",
@@ -36,9 +35,9 @@ def apply_markdown_styling():
         margin-right: 10px;
     }
     .company-logo {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
+        width: 30px;
+        # height: 20px;
+        # border-radius: 50%;
         margin-right: 10px;
     }
     .company-name {
@@ -68,9 +67,12 @@ def display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, E
     with col2:
         st.markdown("### **Filip Stål**")
         st.write(DESCRIPTION)
-        st.markdown(f"✉️ [Email me](mailto:{EMAIL})")
+        st.write('\n')
+        st.markdown(f"<div style='text-align: center;'>✉️ <a href='mailto:{EMAIL}'>Email me</a></div>", unsafe_allow_html=True)
+        st.write('\n')
+        st.write('\n')
         st.download_button(
-            label=" 📄 Resume",
+            label="Download Resume",
             data=PDFbyte,
             file_name=resume_file.name,
             mime="application/octet-stream",
@@ -79,62 +81,44 @@ def display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, E
         
 def write_markdown_centered(text):
     st.markdown(f"<div class='centered'>{text}</div>", unsafe_allow_html=True)
-        
 
 def display_logos(logos_json):
-        blank_space(1)
-        st.write('\n')
-        misc_logos = logos_json.get("misc", {})
-        cols_2 = st.columns(len(misc_logos))
-        for index, platform in enumerate(misc_logos.keys()):
-            with cols_2[index]:
-                st.markdown(get_logo(platform, logos_json, class_name="misc-logo", type="misc"), unsafe_allow_html=True)        
-        
-        social_logos = logos_json.get("social", {})
-        cols = st.columns(len(social_logos)+2)
-        for index, platform in enumerate(social_logos.keys()):
-            with cols[index+1]:
-                st.markdown(get_logo(platform, logos_json, class_name="social-logo", type="social"), unsafe_allow_html=True)
-        
+    blank_space(1)
+    st.write('\n')
+    misc_logos = logos_json.get("misc", {})
+    cols_2 = st.columns(len(misc_logos))
+    for index, platform in enumerate(misc_logos.keys()):
+        with cols_2[index]:
+            st.markdown(get_logo(platform, logos_json, class_name="misc-logo", type="misc"), unsafe_allow_html=True)        
 
-
-
-def display_contact_info():
-    st.subheader("Contact Information")
-    st.write("Filip Johan Andreas Stål")
-    st.write("Norra stationsgatan 99")
-    st.write("070 233 06 87 | filip.johan.stal@gmail.com")
+    social_logos = logos_json.get("social", {})
+    cols = st.columns(len(social_logos)+2)
+    for index, platform in enumerate(social_logos.keys()):
+        with cols[index+1]:
+            st.markdown(get_logo(platform, logos_json, class_name="social-logo", type="social"), unsafe_allow_html=True)
 
 def display_education(logos_json):
     st.write('\n')
-    st.subheader("Education")
+    st.write("#### Education")
     thick_line("black")
-    st.write(f'<div class="company-name">{get_logo("KTH", logos_json, class_name="company-logo", type="misc")}<b>KTH, Royal Institute of Technology</b></div>', unsafe_allow_html=True)
-    st.write("*B.Sc Engineering Physics*")
-    st.write("Stockholm | 2021-2024")
+    st.write(f'<div class="company-name">{get_logo("KTH", logos_json, class_name="company-logo", type="misc")}<b>    KTH, Royal Institute of Technology</b></div>', unsafe_allow_html=True)
+    st.write("*B.Sc Engineering Physics | M.Sc Machine Learning*")
+    st.write("Stockholm | 2021-2026")
     st.write(
         """
         Engineering degree in Physics, with a master in computer science, Machine Learning.
         Current GPA: 4.7 / 5.0
         """
     )
-    st.write('---')
-    st.write(f'<div class="company-name">{get_logo("KTH", logos_json, class_name="company-logo", type="misc")}<b>KTH, Royal Institute of Technology</b></div>', unsafe_allow_html=True)
-    st.write("*M.Sc Machine Learning*")
-    st.write("Stockholm | 2024-2026")
-    st.write(
-        """
-        Engineering degree in Physics, with a master in computer science, Machine Learning.
-        """
-    )
 
 def display_experience(logos_json):
     st.write('\n')
-    st.subheader("Experience")
+    st.write("#### Experience")
     thick_line("black")
     
     # AP4
-    st.write(f'<div class="company-name">{get_logo("AP4", logos_json, class_name="company-logo", type="misc")}<b>AP4</b></div>', unsafe_allow_html=True)
+    st.write(f'<div class="company-name">{get_logo("AP4", logos_json, class_name="company-logo", type="misc")}<b>    AP4</b></div>', unsafe_allow_html=True)
+    st.write('\n')
     st.write("*Strategic Allocation & Quantitative Analysis*")
     st.write("Stockholm | Summer 2024")
     st.write(
@@ -145,9 +129,10 @@ def display_experience(logos_json):
     st.write('---')
 
     # Oxx
-    st.write(f'<div class="company-name">{get_logo("OXX", logos_json, class_name="company-logo", type="misc")}<b>Oxx</b></div>', unsafe_allow_html=True)
+    st.write(f'<div class="company-name">{get_logo("OXX", logos_json, class_name="company-logo", type="misc")}<b>    Oxx</b></div>', unsafe_allow_html=True)
+    st.write('\n')    
     st.write("*Visiting Associate*")
-    st.write("Stockholm & London | Summer 2024")
+    st.write("Stockholm & London | Spring 2024")
     st.write(
         """
         Oxx is a b2b SaaS venture fund, currently investing in their second pan-European fund. I was part of their daily operation sourcing good companies, but also worked on a tech project regarding their internal data management.
@@ -156,7 +141,8 @@ def display_experience(logos_json):
     st.write('---')
 
     # Evolante Engineering
-    st.write(f'<div class="company-name">{get_logo("Evolante", logos_json, class_name="company-logo", type="misc")}<b>Evolante Engineering</b></div>', unsafe_allow_html=True)
+    st.write(f'<div class="company-name">{get_logo("Evolante", logos_json, class_name="company-logo", type="misc")}<b>    Evolante Engineering</b></div>', unsafe_allow_html=True)
+    st.write('\n')    
     st.write("*Software Engineer*")
     st.write("Stockholm | Sep 2023 – Present")
     st.write(
@@ -167,7 +153,8 @@ def display_experience(logos_json):
     st.write('---')
     
     # Lovable
-    st.write(f'<div class="company-name">{get_logo("Lovable", logos_json, class_name="company-logo", type="misc")}<b>Lovable</b></div>', unsafe_allow_html=True)
+    st.write(f'<div class="company-name">{get_logo("Lovable", logos_json, class_name="company-logo", type="misc")}<b>    Lovable</b></div>', unsafe_allow_html=True)
+    st.write('\n')    
     st.write("*Software Engineer*")
     st.write("Stockholm | Sep 2023 – Present")
     st.write(
@@ -178,7 +165,8 @@ def display_experience(logos_json):
     st.write('---')
 
     # Ampfield
-    st.write(f'<div class="company-name">{get_logo("Ampfield", logos_json, class_name="company-logo", type="misc")}<b>Ampfield</b></div>', unsafe_allow_html=True)
+    st.write(f'<div class="company-name">{get_logo("Ampfield", logos_json, class_name="company-logo", type="misc")}<b>    Ampfield</b></div>', unsafe_allow_html=True)
+    st.write('\n')    
     st.write("*Software Engineer Intern & Trading Supervisor*")
     st.write("Stockholm, Sweden | May 2022 – Sep 2023")
     st.write(
@@ -189,61 +177,83 @@ def display_experience(logos_json):
     st.write('---')
 
     # Boston Consulting Group
-    st.write(f'<div class="company-name">{get_logo("BCG", logos_json, class_name="company-logo", type="misc")}<b>Boston Consulting Group</b></div>', unsafe_allow_html=True)
+    st.write(f'<div class="company-name">{get_logo("BCG", logos_json, class_name="company-logo", type="misc")}<b>    Boston Consulting Group</b></div>', unsafe_allow_html=True)
+    st.write('\n')    
     st.write("*Incoming Internship*")
-    st.write("Stockholm, Sweden | November 2024 | 2024")
+    st.write("Stockholm, Sweden | November 2024")
     st.write(
         """
         Incoming internship at Boston Consulting Group.
         """
     )
 
-def display_activities(logos_json):
-    st.write('\n')
-    st.subheader("Activities")
+def display_activities_and_diplomas(logos_json):
+    col1, col2 = st.columns(2)
     
-    # Lägg till en tjock linje under huvudtiteln
-    thick_line("black")
-    
-    # KTH Finance Society
-    st.write(f'<div class="company-name">{get_logo("KTHFS", logos_json, class_name="company-logo", type="misc")}<b>KTH Finance Society</b></div>', unsafe_allow_html=True)
-    st.write("*Corporate Relations – Board Member*")
-    st.write("Stockholm, Sweden | Feb 2023 – Present")
-    st.write(
-        """
-        KTHFS is a student association aiming to narrow the gap between students and the industry. I recruited 40% of the consulting companies to our labour market fair 2023.
-        """
-    )
-    st.write("---")
-    
-    # F.Capital Management
-    st.write(f'<div class="company-name">{get_logo("F.CAP", logos_json, class_name="company-logo", type="misc")}<b>F.Capital Management</b></div>', unsafe_allow_html=True)
-    st.write("*Head of Corporate Relations*")
-    st.write("Stockholm, Sweden | Okt 2022 – Dec 2023 | 1 år 3 mån")
-    st.write(
-        """
-        F.Capital Management invest a share of the Physics Chapters liquid assets.
-        """
-    )
-    st.write("---")
+    with col1:
+        st.write("#### Activities")
+        thick_line("black")
+        
+        # KTH Finance Society
+        st.write(f'<div class="company-name">{get_logo("KTHFS", logos_json, class_name="company-logo", type="misc")}<b>KTH Finance Society</b></div>', unsafe_allow_html=True)
+        st.write("*Corporate Relations – Board Member*")
+        st.write("Stockholm, Sweden | Feb 2023 – Present")
+        st.write(
+            """
+            KTHFS is a student association aiming to narrow the gap between students and the industry. I recruited 40% of the consulting companies to our labour market fair 2023.
+            """
+        )
+        st.write("---")
+        
+        # F.Capital Management
+        st.write(f'<div class="company-name">{get_logo("F.CAP", logos_json, class_name="company-logo", type="misc")}<b>F.Capital Management</b></div>', unsafe_allow_html=True)
+        st.write("*Head of Corporate Relations*")
+        st.write("Stockholm, Sweden | Okt 2022 – Dec 2023")
+        st.write(
+            """
+            F.Capital Management invest a share of the Physics Chapters liquid assets.
+            """
+        )
+        st.write("---")
 
-    # Fusion – Fysiksektionens arbetsmarknadsdag
-    st.write(f'<div class="company-name">{get_logo("Fusion", logos_json, class_name="company-logo", type="misc")}<b>Fusion - Labour Market Fair</b></div>', unsafe_allow_html=True)
-    st.write("*Event Manager - Fusion 2022*")
-    st.write("Stockholm, Sweden | Nov 2021 – Mars 2022 | 5 mån")
-    st.write(
-        """
-        Fusion is a labor market fair for physics & mathematics students @KTH. My post involved talking to companies and planning events prior to the fair. I mostly hosted lunch lectures, both digital and in-person events.
-        """
-    ) 
-    st.write("---")
-    st.write("*Account Manager - Fusion 2023*")
-    st.write("Stockholm, Sweden | Maj 2022 – Jan 2023 | 9 mån")
-    st.write(
-        """
-        Participated in the project group for Fusion 2023. My role evolved around the recruitment of companies for the fair. I recruited seven companies in total, and more than half of my sales resulted in a more extensive package.
-        """
-    ) 
+        # Fusion – Fysiksektionens arbetsmarknadsdag
+        st.write(f'<div class="company-name">{get_logo("Fusion", logos_json, class_name="company-logo", type="misc")}<b>Fusion - Labour Market Fair</b></div>', unsafe_allow_html=True)
+        st.write("*Account manager*")
+        st.write("Stockholm, Sweden | 2022 & 2023")
+        st.write(
+            """
+            Participated in the project group for Fusion 2023. My role evolved around the recruitment of companies for the fair. I recruited seven companies in total, and more than half of my sales resulted in a more extensive package.
+            """
+        )
+    
+    with col2:
+        st.write("#### Diplomas")
+        thick_line("black")
+        st.write("**Henrik Göransson's Sandviken scholarship fund**")
+        st.write("*47 000 SEK*")
+        st.write(
+            """
+            For great academic results and engagement during my bachelor's degree.
+            """
+        )
+        st.write('####')
+        st.write('\n')
+        st.write('---')
+        st.write("**Mathematics - Falun Educational Fund**")
+        st.write("2250 SEK - Highest amount in the class of 2020")
+        st.write(
+            """
+            For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
+            """
+        )
+        st.write('---')
+        st.write("**Ljungsberg Scolarship Fund**")
+        st.write("20 000 SEK")
+        st.write(
+            """
+            For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
+            """
+        )
 
 def display_skills():
     st.subheader("Overview")
@@ -306,32 +316,3 @@ def display_skills():
         </tr>
     </table>
     """, unsafe_allow_html=True)
-    
-def display_diplomas():
-    st.write('###')
-    st.subheader("Diplomas")
-    thick_line("black")
-    st.write("**Henrik Göransson's Sandviken scholarship fund**")
-    st.write("47 000 SEK")
-    st.write(
-        """
-        For great academic results and engagement during my bachelor's degree.
-        """
-    )
-    st.write('---')
-    st.write("**Mathematics - Falun Educational Fund**")
-    st.write("2250 SEK - Highest amount in the class of 2020")
-    st.write(
-        """
-        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
-        """
-    )
-    st.write('---')
-    st.write("**Ljungsberg Scolarship Fund**")
-    st.write("20 000 SEK")
-    st.write(
-        """
-        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
-        """
-    )
-    st.write('---')
