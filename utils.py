@@ -63,13 +63,12 @@ def blank_space(size: int = 1):
 def display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, EMAIL, logos_json):
     col1, col2 = st.columns([1, 1])
     with col1:
-        st.write("####")
         st.image(profile_pic, width=300)
         
     with col2:
-        st.title(NAME)
+        st.markdown("### **Filip Stål**")
         st.write(DESCRIPTION)
-        st.write("✉️", EMAIL)
+        st.markdown(f"✉️ [Email me](mailto:{EMAIL})")
         st.download_button(
             label=" 📄 Resume",
             data=PDFbyte,
@@ -77,8 +76,12 @@ def display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, E
             mime="application/octet-stream",
             use_container_width=True,
         )
+        
+def write_markdown_centered(text):
+    st.markdown(f"<div class='centered'>{text}</div>", unsafe_allow_html=True)
+        
 
-        # --- SOCIAL LINKS ---
+def display_logos(logos_json):
         blank_space(1)
         social_logos = logos_json.get("social", {})
         cols = st.columns(len(social_logos)+2)
@@ -92,6 +95,7 @@ def display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, E
         for index, platform in enumerate(misc_logos.keys()):
             with cols_2[index]:
                 st.markdown(get_logo(platform, logos_json, class_name="misc-logo", type="misc"), unsafe_allow_html=True)
+
 
 def display_contact_info():
     st.subheader("Contact Information")
@@ -240,41 +244,67 @@ def display_activities(logos_json):
     ) 
 
 def display_skills():
-    st.subheader("Skills")
+    st.subheader("Overview")
     thick_line("black")
 
-    # Språk
-    st.write("**Languages**")
-    languages = {
-        "Language": ["Swedish", "English"],
-        "Proficiency": ["Native", "Fluent"]
-    }
-    df_languages = pd.DataFrame({"Proficiency" : languages["Proficiency"]}, index = languages["Language"])
-    df_languages
-    st.table(df_languages)
-    
     # Mjukvaruutveckling
-    st.write("**Software Development**")
-    software_skills = {
-        "Type": [
-            "Python", "TypeScript & JavaScript", "Database", 
-            "DevOps", "Excel / Sheets", 
-            "Web Development", "Version Control", "Data Analysis"
-        ],
-        "Description": [
-            "Designing APIs, Cloud, AWS, GCP, LangChain, LLMs, AI-solutions",
-            "Designing APIs, Cloud, AWS, GCP, AI-solutions",
-            "SQL, MongoDB, PostgreSQL, Firebase",
-            "Docker, Git, Argo Workflows, CI/CD",
-            "Advanced data manipulation and analysis",
-            "Typescript, React, Node.js, HTML, CSS, Streamlit",
-            "Git, GitHub, GitLab",
-            "Pandas, NumPy, Scikit-learn, TensorFlow"
-        ]
-    }
-    df_software_skills = pd.DataFrame({'What?':software_skills["Description"]}, index = software_skills["Type"])
-    st.table(df_software_skills)
-
+    st.write("#### Software Development")
+    st.markdown("""
+    <table style="width:100%">
+        <tr>
+            <th style="text-align:left; background-color:black; color:white;">Area</th>
+            <th style="text-align:left; background-color:black; color:white;">Description</th>
+        </tr>
+        <tr>
+            <td>Backend</td>
+            <td>Python, TypeScript, C++</td>
+        </tr>
+        <tr>
+            <td>AI</td>
+            <td>Finetune LLMs, embeddings, RAG</td>
+        </tr>
+        <tr>
+            <td>Frontend</td>
+            <td>Typescript, JavaScript, React, Node.js, HTML, CSS, Streamlit</td>
+        </tr>
+        <tr>
+            <td>Database</td>
+            <td>SQL, MongoDB, Pinecone, PostgreSQL, Firebase</td>
+        </tr>
+        <tr>
+            <td>DevOps</td>
+            <td>Docker, Git, Argo Workflows, CI/CD</td>
+        </tr>
+        <tr>
+            <td>Version Control</td>
+            <td>Git, GitHub, GitLab</td>
+        </tr>
+        <tr>
+            <td>Data Analysis</td>
+            <td>Pandas, NumPy, Scikit-learn, TensorFlow, Excel</td>
+        </tr>
+    </table>
+    """, unsafe_allow_html=True)
+    
+    # Språk
+    st.write("#### Languages")
+    st.markdown("""
+    <table style="width:50%">
+        <tr>
+            <th style="text-align:left; background-color:black; color:white;">Language</th>
+            <th style="text-align:left; background-color:black; color:white;">Proficiency</th>
+        </tr>
+        <tr>
+            <td>Swedish</td>
+            <td>Native</td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td>Fluent</td>
+        </tr>
+    </table>
+    """, unsafe_allow_html=True)
+    
 def display_diplomas():
     st.write('###')
     st.subheader("Diplomas")
