@@ -1,0 +1,48 @@
+{
+    "social": {
+        "LinkedIn": {
+            "link": "https://www.linkedin.com/in/filip-st%C3%A5l-464849229/",
+            "logo": "https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"
+        },
+        "GitHub": {
+            "link": "https://github.com/stalfilip",
+            "logo": "https://cdn-icons-png.flaticon.com/512/25/25231.png"
+        },
+        "X": {
+            "link": "https://x.com/stal_filip",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg"
+        }
+    },
+    "misc": {
+        "AP4": {
+            "link": "https://www.ap4.se/",
+            "logo": "https://www.ap4.se/contentassets/76922b9ef1634ed798478ccd0e46d7a3/ap4_logo_cmyk_square-2.png"
+        },
+        "OXX": {
+            "link": "https://www.oxx.vc/",
+            "logo": "https://cdn.ourcrowd.com/wp-content/uploads/2022/01/oxx-logo-removebg-preview.png"
+        },
+        "BCG": {
+            "link": "https://www.bcg.com/",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Boston_Consulting_Group_2020_logo.svg/2560px-Boston_Consulting_Group_2020_logo.svg.png"
+        },
+        "Lovable": {
+            "link": "https://lovable.dev/",
+            "logo": "https://lovable.dev/lovable-open-graph.png"
+        },
+        "KTH": {
+            "link": "https://www.kth.se/",
+            "logo": "https://seeklogo.com/images/K/kth-logo-2D6316D414-seeklogo.com.png"
+        },
+        "Ampfield": {
+            "link": "https://ampfield.se/",
+            "logo": "https://ampfield.se/ampfield.png"
+        }  ,      
+
+        "Evolante": {
+            "link": "https://www.evolante.se/",
+            "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAIAAAD9b0jDAAAAaUlEQVR4AWOAgFEwCkbBkSNHrmKAO3fumIABkIEpC9RCwNC/f/+6uLgEoYLQ0FAhMAAy0KSAioFaCBtKqucG1NB58+ZtRgJALkQWU5wEQ0tKSpqRAJALFMQlPtTDlPIkRcPEPwpGwSgAAKxVxm1aaRFWAAAAAElFTkSuQmCC"
+        }
+
+    }
+}

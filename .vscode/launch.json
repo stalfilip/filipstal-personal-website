@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Streamlit: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "/home/filipstal/.cache/pypoetry/virtualenvs/filipstal-personal-website-ekGGzyhK-py3.10/bin/streamlit",
+            "args": ["run", "Overview.py"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
