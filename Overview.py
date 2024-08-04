@@ -12,8 +12,8 @@ profile_pic_path = current_dir / "assets" / "profile.png"
 json_file = current_dir / "assets" / "logos.json"
 
 # --- GENERAL SETTINGS ---
-PAGE_TITLE = "Digital CV | Filip Stål"
-PAGE_ICON = ":wave:"
+PAGE_TITLE = "Filip Stål"
+PAGE_ICON = ":coffee:"
 NAME = "Filip Stål"
 
 DESCRIPTION = """
