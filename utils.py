@@ -1,5 +1,14 @@
 import streamlit as st
 import pandas as pd
+import json
+from pathlib import Path
+
+current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
+json_file = current_dir / "assets" / "logos.json"
+
+# --- LOAD SOCIAL MEDIA LOGOS FROM JSON ---
+with open(json_file) as f:
+    logos_json = json.load(f)
 
 def thick_line(color="black", size=1):
     colors = {
@@ -113,7 +122,7 @@ def display_education(logos_json):
 
 def display_experience(logos_json):
     st.write('\n')
-    st.write("#### Experience")
+    # st.write("#### Experience")
     thick_line("black")
     
     # AP4
@@ -259,60 +268,25 @@ def display_skills():
     st.subheader("Overview")
     thick_line("black")
 
-    # Mjukvaruutveckling
+    # Software Development
     st.write("#### Software Development")
     st.markdown("""
-    <table style="width:100%">
-        <tr>
-            <th style="text-align:left; background-color:black; color:white;">Area</th>
-            <th style="text-align:left; background-color:black; color:white;">Description</th>
-        </tr>
-        <tr>
-            <td>Backend</td>
-            <td>Python, TypeScript, C++</td>
-        </tr>
-        <tr>
-            <td>AI</td>
-            <td>Finetune LLMs, embeddings, RAG</td>
-        </tr>
-        <tr>
-            <td>Frontend</td>
-            <td>Typescript, JavaScript, React, Node.js, HTML, CSS, Streamlit</td>
-        </tr>
-        <tr>
-            <td>Database</td>
-            <td>SQL, MongoDB, Pinecone, PostgreSQL, Firebase</td>
-        </tr>
-        <tr>
-            <td>DevOps</td>
-            <td>Docker, Git, Argo Workflows, CI/CD</td>
-        </tr>
-        <tr>
-            <td>Version Control</td>
-            <td>Git, GitHub, GitLab</td>
-        </tr>
-        <tr>
-            <td>Data Analysis</td>
-            <td>Pandas, NumPy, Scikit-learn, TensorFlow, Excel</td>
-        </tr>
-    </table>
-    """, unsafe_allow_html=True)
-    
-    # Språk
+    | **Area**           | **Description**                             |
+    |--------------------|---------------------------------------------|
+    | Backend            | Python, TypeScript, C++                     |
+    | AI                 | Finetune LLMs, embeddings, RAG              |
+    | Frontend           | Typescript, JavaScript, React, Node.js, HTML, CSS, Streamlit |
+    | Database           | SQL, MongoDB, Pinecone, PostgreSQL, Firebase |
+    | DevOps             | Docker, Git, Argo Workflows, CI/CD          |
+    | Version Control    | Git, GitHub, GitLab                         |
+    | Data Analysis      | Pandas, NumPy, Scikit-learn, TensorFlow, Excel |
+    """)
+
+    # Languages
     st.write("#### Languages")
     st.markdown("""
-    <table style="width:50%">
-        <tr>
-            <th style="text-align:left; background-color:black; color:white;">Language</th>
-            <th style="text-align:left; background-color:black; color:white;">Proficiency</th>
-        </tr>
-        <tr>
-            <td>Swedish</td>
-            <td>Native</td>
-        </tr>
-        <tr>
-            <td>English</td>
-            <td>Fluent</td>
-        </tr>
-    </table>
-    """, unsafe_allow_html=True)
+    | **Language**       | **Proficiency**                             |
+    |--------------------|---------------------------------------------|
+    | Swedish            | Native                                      |
+    | English            | Fluent                                      |
+    """)

@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image
 import json
 
-from utils import get_logo, load_css, display_hero_section, display_logos, display_skills, apply_markdown_styling, thick_line, blank_space
+from utils import logos_json, display_education, get_logo, load_css, display_hero_section, display_logos, display_skills, apply_markdown_styling, thick_line, blank_space
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -38,9 +38,9 @@ def main():
         
     profile_pic = Image.open(profile_pic_path)
 
-    # --- LOAD SOCIAL MEDIA LOGOS FROM JSON ---
-    with open(json_file) as f:
-        logos_json = json.load(f)
+    # # --- LOAD SOCIAL MEDIA LOGOS FROM JSON ---
+    # with open(json_file) as f:
+    #     logos_json = json.load(f)
 
     # --- Display Sections ---
     display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, EMAIL, logos_json)
@@ -48,10 +48,10 @@ def main():
     with col2:
         display_logos(logos_json)
         
+    display_education(logos_json=logos_json)
+        
     st.write("####")
     display_skills()
-    blank_space()
-    thick_line()
 
 if __name__ == "__main__":
     main()
