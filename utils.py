@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 import json
 from pathlib import Path
 
@@ -68,7 +67,7 @@ def blank_space(size: int = 1):
         str += '#'
     st.write(str)
     
-def display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, EMAIL, logos_json):
+def display_hero_section(profile_pic,DESCRIPTION, PDFbyte, resume_file, EMAIL):
     col1, col2 = st.columns([1, 1])
     with col1:
         st.image(profile_pic, width=300)
@@ -88,9 +87,6 @@ def display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, E
             use_container_width=True,
         )
         
-def write_markdown_centered(text):
-    st.markdown(f"<div class='centered'>{text}</div>", unsafe_allow_html=True)
-
 def display_logos(logos_json):
     blank_space(1)
     st.write('\n')

@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(page_title="Assistant", page_icon=":robot_face:")
+
 st.write("#### Assistant")
 st.write("---")
 st.write("This is an AI powered chatbot that gives you advice on 'affärsrådgivning'.")

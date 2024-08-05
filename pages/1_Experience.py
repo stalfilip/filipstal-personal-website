@@ -4,7 +4,7 @@ import json
 from utils import display_education, display_experience, display_activities_and_diplomas, apply_markdown_styling, blank_space
 
 # Set page configuration for wide layout
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_icon=":book:")
 st.write("#### Experience")
 st.write("---")
 # Load JSON file with logos

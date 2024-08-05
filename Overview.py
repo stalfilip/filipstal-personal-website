@@ -14,7 +14,7 @@ json_file = current_dir / "assets" / "logos.json"
 
 # --- GENERAL SETTINGS ---
 PAGE_TITLE = "Filip Stål"
-PAGE_ICON = ":coffee:"
+PAGE_ICON = ":earth_americas:"
 NAME = "Filip Stål"
 
 DESCRIPTION = """
@@ -43,7 +43,7 @@ def main():
     #     logos_json = json.load(f)
 
     # --- Display Sections ---
-    display_hero_section(profile_pic, NAME, DESCRIPTION, PDFbyte, resume_file, EMAIL, logos_json)
+    display_hero_section(profile_pic, DESCRIPTION, PDFbyte, resume_file, EMAIL)
     _, col2, _ = st.columns([1, 2, 1])
     with col2:
         display_logos(logos_json)
