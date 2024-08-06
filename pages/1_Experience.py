@@ -51,5 +51,3 @@ st.write("##")
 
 display_experience(logos_json)
 st.write("##")
-
-display_activities_and_diplomas(logos_json)

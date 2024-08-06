@@ -256,11 +256,9 @@ def display_activities_and_diplomas(logos_json):
     st.write("*47 000 SEK*")
     st.write(
         """
-        For great academic results and engagement during my bachelor's degree.
+        For great academic results during my bachelor's degree.
         """
     )
-    st.write('####')
-    st.write('\n')
     st.write('---')
     st.write("**Mathematics - Falun Educational Fund**")
     st.write("2250 SEK - Highest amount in the class of 2020")
