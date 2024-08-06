@@ -9,7 +9,7 @@ json_file = current_dir / "assets" / "logos.json"
 with open(json_file) as f:
     logos_json = json.load(f)
 
-def thick_line(color="black", size=1):
+def thick_line(color="white", size=1):
     colors = {
         "black": "#000000",
         "white": "#FFFFFF",
@@ -129,7 +129,8 @@ def display_experience(logos_json):
     st.write(
         """
         Summer internship as a software engineer at the funds Strategic Allocation & Quantitative Analysis division.
-        """
+        
+        Building on the funds quant platform, and also developed a data visualization tool."""
     )
     st.write('---')
 
@@ -141,6 +142,8 @@ def display_experience(logos_json):
     st.write(
         """
         Oxx is a b2b SaaS venture fund, currently investing in their second pan-European fund. I was part of their daily operation sourcing good companies, but also worked on a tech project regarding their internal data management.
+        
+        The tech project covered building a centralized data management system for the fund, which included data collection, cleaning, and visualization. I was the main developer on the project, and working closely with the investment team to ensure the system met their needs.
         """
     )
     st.write('---')
@@ -150,21 +153,38 @@ def display_experience(logos_json):
     st.write('\n')    
     st.write("*Software Engineer*")
     st.write("Stockholm | Sep 2023 – Present")
-    st.write(
+    blank_space(1)
+    st.markdown(
         """
-        Software engineer at a consultancy firm focused on Gen AI solutions for clients in various sectors. I’ve been head engineer at två projects.
+        **Evolante** is a sector agnostic consultancy firm focused on AI & Machine Learning solutions. [Read more](https://www.evolante.se/)
         """
     )
+    
+    st.markdown(
+        """
+        I've been involved in two projects: 
+        
+        -  Technical assistance at a swedish retail company, mostly focused on integrating their Shopify store with their internal systems. [Read about the project ](https://www.evolante.se/project/shopify-sync-och-integration)
+        
+        - Building a AI based search engine for a Stockholm based startup. The project included designing the arcitechure of the search engine, as well as building and deploying the API. 
+        I was the head engineer on the project from our side, and was responsible for the technical decisions and the implementation of the project. I also worked closley with a project leader from our consultancy firm, and the developers at the startup.
+        """)
+    
+    
     st.write('---')
     
     # Lovable
     st.write(f'<div class="company-name">{get_logo("Lovable", logos_json, class_name="company-logo", type="misc")}<b>    Lovable</b></div>', unsafe_allow_html=True)
     st.write('\n')    
-    st.write("*Software Engineer*")
-    st.write("Stockholm | Sep 2023 – Present")
-    st.write(
+    st.write("*Operations Contractor*")
+    st.write("Stockholm | Oct 2023 – Feb 2024")
+    
+    st.markdown(
         """
-        Software engineer at a consultancy firm focused on Gen AI solutions for clients in various sectors. I’ve been head engineer at två projects.
+        Code generation startup, powered by AI. I helped the co-founders with the daily operations regarding both the tech and the business side. As the first employee except the co-founders, I was involved in the early stages of releasing the first product to the public, including structuring the release on twitter product hunt and other platforms. Combined, the posts reached over a half a million people.
+        
+        - [Twitter Post](https://x.com/antonosika/status/1737113683392942237) - 450k+ views\n
+        - [Product Hunt Post](https://www.producthunt.com/products/gptengineer-app/awards) - Product of the day, and of the week    
         """
     )
     st.write('---')
@@ -176,7 +196,9 @@ def display_experience(logos_json):
     st.write("Stockholm, Sweden | May 2022 – Sep 2023")
     st.write(
         """
-        Ampfield is an algorithmic proprietary trading firm specializing in liquid currencies and agricultural futures. I was en part-time trading supervisor and software developer, responsible for overseeing trading and developing software for data collection and analysis. In the summer of 2023, I undertook en 5-week internship as en C++ developer building software for data collection and visualization.
+        Ampfield is an algorithmic proprietary trading firm specializing in liquid currencies and agricultural futures. 
+        I was en part-time trading supervisor and software developer, responsible for overseeing trading and developing software for their quant platform \n
+        In the summer of 2023, I worked as a C++ developer building software for data collection and visualization. 
         """
     )
     st.write('---')
@@ -193,89 +215,90 @@ def display_experience(logos_json):
     )
 
 def display_activities_and_diplomas(logos_json):
-    col1, col2 = st.columns(2)
+    st.write("#### Activities")
+    thick_line("black")
     
-    with col1:
-        st.write("#### Activities")
-        thick_line("black")
-        
-        # KTH Finance Society
-        st.write(f'<div class="company-name">{get_logo("KTHFS", logos_json, class_name="company-logo", type="misc")}<b>KTH Finance Society</b></div>', unsafe_allow_html=True)
-        st.write("*Corporate Relations – Board Member*")
-        st.write("Stockholm, Sweden | Feb 2023 – Present")
-        st.write(
-            """
-            KTHFS is a student association aiming to narrow the gap between students and the industry. I recruited 40% of the consulting companies to our labour market fair 2023.
-            """
-        )
-        st.write("---")
-        
-        # F.Capital Management
-        st.write(f'<div class="company-name">{get_logo("F.CAP", logos_json, class_name="company-logo", type="misc")}<b>F.Capital Management</b></div>', unsafe_allow_html=True)
-        st.write("*Head of Corporate Relations*")
-        st.write("Stockholm, Sweden | Okt 2022 – Dec 2023")
-        st.write(
-            """
-            F.Capital Management invest a share of the Physics Chapters liquid assets.
-            """
-        )
-        st.write("---")
+    # KTH Finance Society
+    st.write(f'<div class="company-name">{get_logo("KTHFS", logos_json, class_name="company-logo", type="academic")}<b>KTH Finance Society</b></div>', unsafe_allow_html=True)
+    st.write("*Corporate Relations – Board Member*")
+    st.write("Stockholm, Sweden | Feb 2023 – Present")
+    st.write(
+        """
+        KTHFS is a student association aiming to narrow the gap between students and the industry. I recruited 40% of the consulting companies to our labour market fair 2023.
+        """
+    )
+    st.write("---")
+    
+    # F.Capital Management
+    st.write(f'<div class="company-name">{get_logo("F.CAP", logos_json, class_name="company-logo", type="academic")}<b>F.Capital Management</b></div>', unsafe_allow_html=True)
+    st.write("*Head of Corporate Relations*")
+    st.write("Stockholm, Sweden | Okt 2022 – Dec 2023")
+    st.write(
+        """
+        F.Capital Management invest a share of the Physics Chapters liquid assets.
+        """
+    )
+    st.write("---")
 
-        # Fusion – Fysiksektionens arbetsmarknadsdag
-        st.write(f'<div class="company-name">{get_logo("Fusion", logos_json, class_name="company-logo", type="misc")}<b>Fusion - Labour Market Fair</b></div>', unsafe_allow_html=True)
-        st.write("*Account manager*")
-        st.write("Stockholm, Sweden | 2022 & 2023")
-        st.write(
-            """
-            Participated in the project group for Fusion 2023. My role evolved around the recruitment of companies for the fair. I recruited seven companies in total, and more than half of my sales resulted in a more extensive package.
-            """
-        )
-    
-    with col2:
-        st.write("#### Diplomas")
-        thick_line("black")
-        st.write("**Henrik Göransson's Sandviken scholarship fund**")
-        st.write("*47 000 SEK*")
-        st.write(
-            """
-            For great academic results and engagement during my bachelor's degree.
-            """
-        )
-        st.write('####')
-        st.write('\n')
-        st.write('---')
-        st.write("**Mathematics - Falun Educational Fund**")
-        st.write("2250 SEK - Highest amount in the class of 2020")
-        st.write(
-            """
-            For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
-            """
-        )
-        st.write('---')
-        st.write("**Ljungsberg Scolarship Fund**")
-        st.write("20 000 SEK")
-        st.write(
-            """
-            For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
-            """
-        )
+    # Fusion – Fysiksektionens arbetsmarknadsdag
+    st.write(f'<div class="company-name">{get_logo("Fusion", logos_json, class_name="company-logo", type="academic")}<b>Fusion - Labour Market Fair</b></div>', unsafe_allow_html=True)
+    st.write("*Account manager*")
+    st.write("Stockholm, Sweden | 2022 & 2023")
+    st.write(
+        """
+        Participated in the project group for Fusion 2023. My role evolved around the recruitment of companies for the fair. I recruited seven companies in total, and more than half of my sales resulted in a more extensive package.
+        """
+    )
+    blank_space(3)
+    st.write("#### Diplomas")
+    thick_line("black")
+    st.write("**Henrik Göransson's Sandviken scholarship fund**")
+    st.write("*47 000 SEK*")
+    st.write(
+        """
+        For great academic results and engagement during my bachelor's degree.
+        """
+    )
+    st.write('####')
+    st.write('\n')
+    st.write('---')
+    st.write("**Mathematics - Falun Educational Fund**")
+    st.write("2250 SEK - Highest amount in the class of 2020")
+    st.write(
+        """
+        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
+        """
+    )
+    st.write('---')
+    st.write("**Ljungsberg Scolarship Fund**")
+    st.write("20 000 SEK")
+    st.write(
+        """
+        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
+        """
+    )
 
 def display_skills():
-    st.subheader("Overview")
+    st.subheader("Miscellaneous")
     thick_line("black")
 
     # Software Development
     st.write("#### Software Development")
     st.markdown("""
-    | **Area**           | **Description**                             |
-    |--------------------|---------------------------------------------|
-    | Backend            | Python, TypeScript, C++                     |
-    | AI                 | Finetune LLMs, embeddings, RAG              |
-    | Frontend           | Typescript, JavaScript, React, Node.js, HTML, CSS, Streamlit |
-    | Database           | SQL, MongoDB, Pinecone, PostgreSQL, Firebase |
-    | DevOps             | Docker, Git, Argo Workflows, CI/CD          |
-    | Version Control    | Git, GitHub, GitLab                         |
-    | Data Analysis      | Pandas, NumPy, Scikit-learn, TensorFlow, Excel |
+                
+    | **Area**           | **Description**                                             |
+    |--------------------|-------------------------------------------------------------|
+    | Backend            | Python, TypeScript, C++                                     |
+    | AI                 | Finetune LLMs, embeddings, RAG                              |
+    | Frontend           | TypeScript, JavaScript, React, Node.js, HTML, CSS           |
+    | App Development    | Streamlit, Next                                             |
+    | Testing            | K6, Pytest                                                  |
+    | Database           | SQL, MongoDB,Firebase, Pinecone, Marqo, PostgreSQL,  Strapi |
+    | DevOps             | Docker, Git, Argo Workflows, CI/CD, CircleCI, Terraform     |
+    | Cloud              | AWS, GCP, Render                                            |
+    | Version Control    | Git, GitHub, GitLab                                         |
+    | Data Analysis      | Pandas, NumPy, Scikit-learn, Excel                          |
+
     """)
 
     # Languages

@@ -37,12 +37,24 @@
         "Ampfield": {
             "link": "https://ampfield.se/",
             "logo": "https://ampfield.se/ampfield.png"
-        }  ,      
-
+        },
         "Evolante": {
             "link": "https://www.evolante.se/",
             "logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAIAAAD9b0jDAAAAaUlEQVR4AWOAgFEwCkbBkSNHrmKAO3fumIABkIEpC9RCwNC/f/+6uLgEoYLQ0FAhMAAy0KSAioFaCBtKqucG1NB58+ZtRgJALkQWU5wEQ0tKSpqRAJALFMQlPtTDlPIkRcPEPwpGwSgAAKxVxm1aaRFWAAAAAElFTkSuQmCC"
         }
-
+    },
+    "academic": {
+        "KTHFS": {
+            "link": "https://kthfinancesociety.org/",
+            "logo": "https://kthfinancesociety.org/wp-content/uploads/2023/04/cropped-kthfs_logo_2017.png"
+        },
+        "F.CAP": {
+            "link": "https://kthfinancesociety.org/",
+            "logo": "https://f.kth.se/wp-content/uploads/FrakturF2020.png"
+        },
+        "Fusion": {
+            "link": "https://kthfinancesociety.org/",
+            "logo": "https://f.kth.se/wp-content/uploads/FrakturF2020.png"
+        }
     }
 }

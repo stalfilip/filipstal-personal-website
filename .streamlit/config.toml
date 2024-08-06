@@ -3,21 +3,13 @@
 primaryColor = "#d33682"
 
 # Background color for the main content area.
-backgroundColor = "#7f8272"
+backgroundColor = "#021526"
 
 # Background color used for the sidebar and most interactive widgets.
-secondaryBackgroundColor = "#3a3b37"
+secondaryBackgroundColor = "#101112"
 
 # Color used for almost all text.
 textColor = "#fff"
 
 [server]
 headless = true
-
-[pages]
-order = [
-    "Overview",
-    "Experience",
-    "Portfolio",
-    "Assistant"
-]
