@@ -6,9 +6,9 @@
     "configurations": [
         {
             "name": "Streamlit: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
-            "program": "/home/filipstal/.cache/pypoetry/virtualenvs/filipstal-personal-website-ekGGzyhK-py3.10/bin/streamlit",
+            "program": "/Users/filipstal/Library/Caches/pypoetry/virtualenvs/filipstal-personal-website-tKoDxizL-py3.12/bin/streamlit",
             "args": ["run", "Overview.py"],
             "console": "integratedTerminal"
         }

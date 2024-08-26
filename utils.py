@@ -67,7 +67,7 @@ def blank_space(size: int = 1):
         str += '#'
     st.write(str)
     
-def display_hero_section(profile_pic,DESCRIPTION, PDFbyte, resume_file, EMAIL):
+def display_hero_section(profile_pic, DESCRIPTION, EMAIL):
     col1, col2 = st.columns([1, 1])
     with col1:
         st.image(profile_pic, width=300)
@@ -79,14 +79,7 @@ def display_hero_section(profile_pic,DESCRIPTION, PDFbyte, resume_file, EMAIL):
         st.markdown(f"<div style='text-align: center;'>✉️ <a href='mailto:{EMAIL}'>Email me</a></div>", unsafe_allow_html=True)
         st.write('\n')
         st.write('\n')
-        st.download_button(
-            label="Download Resume",
-            data=PDFbyte,
-            file_name=resume_file.name,
-            mime="application/octet-stream",
-            use_container_width=True,
-        )
-        
+
 def display_logos(logos_json):
     blank_space(1)
     st.write('\n')
@@ -280,30 +273,28 @@ def display_skills():
     st.subheader("Miscellaneous")
     thick_line("black")
 
-    # Software Development
-    st.write("#### Software Development")
-    st.markdown("""
-                
-    | **Area**           | **Description**                                             |
-    |--------------------|-------------------------------------------------------------|
-    | Backend            | Python, TypeScript, C++                                     |
-    | AI                 | Finetune LLMs, embeddings, RAG                              |
-    | Frontend           | TypeScript, JavaScript, React, Node.js, HTML, CSS           |
-    | App Development    | Streamlit, Next                                             |
-    | Testing            | K6, Pytest                                                  |
-    | Database           | SQL, MongoDB,Firebase, Pinecone, Marqo, PostgreSQL,  Strapi |
-    | DevOps             | Docker, Git, Argo Workflows, CI/CD, CircleCI, Terraform     |
-    | Cloud              | AWS, GCP, Render                                            |
-    | Version Control    | Git, GitHub, GitLab                                         |
-    | Data Analysis      | Pandas, NumPy, Scikit-learn, Excel                          |
+    skills = {
+        "Software Development": [
+            ("Backend", "Python, TypeScript, C++"),
+            ("AI", "Finetune LLMs, embeddings, RAG"),
+            ("Frontend", "TypeScript, JavaScript, React, Node.js, HTML, CSS"),
+            ("App Development", "Streamlit, Next"),
+            ("Testing", "K6, Pytest"),
+            ("Database", "SQL, MongoDB, Firebase, Pinecone, Marqo, PostgreSQL, Strapi"),
+            ("DevOps", "Docker, Git, Argo Workflows, CI/CD, CircleCI, Terraform"),
+            ("Cloud", "AWS, GCP, Render"),
+            ("Version Control", "Git, GitHub, GitLab"),
+            ("Data Analysis", "Pandas, NumPy, Scikit-learn, Excel")
+        ],
+        "Languages": [
+            ("Swedish", "Native"),
+            ("English", "Fluent")
+        ]
+    }
 
-    """)
-
-    # Languages
-    st.write("#### Languages")
-    st.markdown("""
-    | **Language**       | **Proficiency**                             |
-    |--------------------|---------------------------------------------|
-    | Swedish            | Native                                      |
-    | English            | Fluent                                      |
-    """)
+    for category, items in skills.items():
+        st.write(f"#### {category}")
+        table = "| **Area** | **Description** |\n|----------|------------------|\n"
+        table += "\n".join([f"| {area} | {description} |" for area, description in items])
+        st.markdown(table)
+        st.write("\n")

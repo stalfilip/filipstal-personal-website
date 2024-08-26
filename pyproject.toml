@@ -6,7 +6,7 @@ authors = ["filip.stal <filip.johan.stal@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
 streamlit = "1.37.0"
 pillow = "^10.4.0"
 
