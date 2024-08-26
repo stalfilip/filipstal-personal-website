@@ -276,12 +276,12 @@ def display_skills():
     skills = {
         "Software Development": [
             ("Backend", "Python, TypeScript, C++"),
-            ("AI", "Finetune LLMs, embeddings, RAG"),
+            ("ML", "Finetune LLMs, embeddings, RAG, BM25, pgvector"),
             ("Frontend", "TypeScript, JavaScript, React, Node.js, HTML, CSS"),
             ("App Development", "Streamlit, Next"),
             ("Testing", "K6, Pytest"),
-            ("Database", "SQL, MongoDB, Firebase, Pinecone, Marqo, PostgreSQL, Strapi"),
-            ("DevOps", "Docker, Git, Argo Workflows, CI/CD, CircleCI, Terraform"),
+            ("Database", "Supabase, SQL, MongoDB, Firebase, Pinecone, Marqo, PostgreSQL, pgvector, Strapi"),
+            ("DevOps", "Docker, Git, Argo Workflows, Github Actions, CircleCI, Terraform"),
             ("Cloud", "AWS, GCP, Render"),
             ("Version Control", "Git, GitHub, GitLab"),
             ("Data Analysis", "Pandas, NumPy, Scikit-learn, Excel")
@@ -292,9 +292,13 @@ def display_skills():
         ]
     }
 
-    for category, items in skills.items():
-        st.write(f"#### {category}")
-        table = "| **Area** | **Description** |\n|----------|------------------|\n"
-        table += "\n".join([f"| {area} | {description} |" for area, description in items])
-        st.markdown(table)
-        st.write("\n")
+    st.write("#### Software Development")
+    table = "| **Area** | **Description** |\n|----------|------------------|\n"
+    table += "\n".join([f"| {area} | {description} |" for area, description in skills["Software Development"]])
+    st.markdown(table)
+    st.write("\n")
+
+    st.write("#### Languages")
+    for language, proficiency in skills["Languages"]:
+        st.markdown(f"**{language}:** {proficiency}")
+    st.write("\n")
