@@ -23,7 +23,7 @@ def display_banner(image_url):
             width: 100%;
             height: 40vh; /* Adjust this value as needed for your banner's height relative to viewport height */
             object-fit: cover;
-            object-position: bottom; /* Ensures the bottom part of the image is always visible */
+            object-position: top; /* Changed from bottom to top */
         }}
         </style>
         <img src="{image_url}" class="banner">

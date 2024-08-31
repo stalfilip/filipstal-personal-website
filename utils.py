@@ -61,11 +61,14 @@ def apply_markdown_styling():
     </style>
     """, unsafe_allow_html=True)
 
-def blank_space(size: int = 1):
-    str = ""
-    for _ in range(4 - size):
-        str += '#'
-    st.write(str)
+def blank_space(size: int = 1, px: int = None):
+    if px is not None:
+        st.markdown(f"<div style='height:{px}px;'></div>", unsafe_allow_html=True)  # Create a blank space of px height
+    else:
+        str = ""
+        for _ in range(4 - size):
+            str += '#'
+        st.write(str)
     
 def display_hero_section(profile_pic, DESCRIPTION, EMAIL):
     col1, col2 = st.columns([1, 1])
@@ -99,21 +102,49 @@ def display_education(logos_json):
     st.write('\n')
     st.write("#### Education")
     thick_line("black")
+
+    # M.Sc
     st.write(f'<div class="company-name">{get_logo("KTH", logos_json, class_name="company-logo", type="misc")}<b>    KTH, Royal Institute of Technology</b></div>', unsafe_allow_html=True)
-    st.write("*B.Sc Engineering Physics | M.Sc Machine Learning*")
-    st.write("Stockholm | 2021-2026")
+    blank_space(px=7)
+    st.write("*M.Sc Machine Learning*")
+    st.write("Stockholm | 2024-2026")  # Adjusted year for M.Sc
     st.write(
         """
-        Engineering degree in Physics, with a master in computer science, Machine Learning.
-        Current GPA: 4.7 / 5.0
+        Master's degree in Machine Learning.
+        """
+    )    
+    # B.Sc
+    st.write('---')
+
+    st.write("*B.Sc Engineering Physics*")
+    st.write("Stockholm | 2021-2024")  # Adjusted year for B.Sc
+    st.write(
+        """
+        Bachelor's degree in Physics.
+        GPA: 4.7 / 5.0
         """
     )
+    
+
 
 def display_experience(logos_json):
     st.write('\n')
     # st.write("#### Experience")
     thick_line("black")
     
+    # AP4
+    st.write(f'<div class="company-name">{get_logo("Bluebook", logos_json, class_name="company-logo", type="misc")}<b>   Bluebook</b></div>', unsafe_allow_html=True)
+    st.write('\n')
+    st.write("*CTO*")
+    st.write("Stockholm | Present")
+    st.markdown(
+        """
+        Bluebook streamlines search, knowledge, and client inquiries for modern accounting firms.
+        [Read more](https://bluebook.se)
+        """
+    )
+    st.write('---')
+
     # AP4
     st.write(f'<div class="company-name">{get_logo("AP4", logos_json, class_name="company-logo", type="misc")}<b>    AP4</b></div>', unsafe_allow_html=True)
     st.write('\n')
@@ -199,11 +230,12 @@ def display_experience(logos_json):
     # Boston Consulting Group
     st.write(f'<div class="company-name">{get_logo("BCG", logos_json, class_name="company-logo", type="misc")}<b>    Boston Consulting Group</b></div>', unsafe_allow_html=True)
     st.write('\n')    
-    st.write("*Incoming Internship*")
-    st.write("Stockholm, Sweden | November 2024")
+    st.write("*Emeralds Talent Program*")
+    st.write("Stockholm, Sweden | Spring 2023")
     st.write(
         """
-        Incoming internship at Boston Consulting Group.
+        Talent program at BCG for selected students. Acceptance rate was 3.6%. At the end of the program, I received
+        an internship offer.
         """
     )
 
@@ -270,7 +302,7 @@ def display_activities_and_diplomas(logos_json):
     )
 
 def display_skills():
-    st.subheader("Miscellaneous")
+    # st.subheader("Software Development")
     thick_line("black")
 
     skills = {

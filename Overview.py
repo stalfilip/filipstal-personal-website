@@ -19,9 +19,9 @@ PAGE_ICON = ":earth_americas:"
 NAME = "Filip Stål"
 
 DESCRIPTION = """
-Physics student with a passion for software and finance.
+Physics & ML student with a passion for software and finance.
 
-During my tenure at KTH, I've been involved in various projects and activities, ranging from freelancing as a software engineer to several internships at well-known companies.
+Currently building a company in the fintech space.
 """
 
 EMAIL = "filip.johan.stal@gmail.com"
