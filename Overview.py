@@ -4,7 +4,7 @@ from PIL import Image
 import json
 import io
 
-from utils import logos_json, display_education, get_logo, load_css, display_logos, display_skills, apply_markdown_styling, thick_line, blank_space
+from utils import logos_json, current_jobb, display_education, get_logo, load_css, display_logos, display_skills, apply_markdown_styling, thick_line, blank_space
 
 # --- PATH SETTINGS ---
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
@@ -61,7 +61,8 @@ def main():
     _, col2, _ = st.columns([1, 2, 1])
     with col2:
         display_logos(logos_json)
-        
+
+    current_jobb(logos_json=logos_json)
     display_education(logos_json=logos_json)
         
     st.write("####")

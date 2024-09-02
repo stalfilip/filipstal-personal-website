@@ -124,6 +124,25 @@ def display_education(logos_json):
         GPA: 4.7 / 5.0
         """
     )
+
+def current_jobb(logos_json):
+    st.write('\n')
+    blank_space(px=30)
+    # st.write("#### Currently")
+    thick_line("black")
+    # M.Sc
+    st.write(f'<div class="company-name">{get_logo("Bluebook", logos_json, class_name="company-logo", type="misc")}<b>   Bluebook</b></div>', unsafe_allow_html=True)
+    st.write('\n')
+    st.write("*CTO*")
+    st.write("Stockholm | Present")
+    st.markdown(
+        """
+        Bluebook streamlines search, knowledge, and client inquiries for modern accounting firms.
+        [Read more](https://bluebook.se)
+        """
+    )
+    blank_space(px=30)
+
     
 
 
@@ -302,7 +321,7 @@ def display_activities_and_diplomas(logos_json):
     )
 
 def display_skills():
-    # st.subheader("Software Development")
+    st.subheader("Software Development")
     thick_line("black")
 
     skills = {
@@ -324,7 +343,6 @@ def display_skills():
         ]
     }
 
-    st.write("#### Software Development")
     table = "| **Area** | **Description** |\n|----------|------------------|\n"
     table += "\n".join([f"| {area} | {description} |" for area, description in skills["Software Development"]])
     st.markdown(table)
