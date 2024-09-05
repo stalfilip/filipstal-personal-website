@@ -133,7 +133,7 @@ def current_jobb(logos_json):
     # M.Sc
     st.write(f'<div class="company-name">{get_logo("Bluebook", logos_json, class_name="company-logo", type="misc")}<b>   Bluebook</b></div>', unsafe_allow_html=True)
     st.write('\n')
-    st.write("*CTO*")
+    st.write("*Hobby project, co-founder*")
     st.write("Stockholm | Present")
     st.markdown(
         """
@@ -150,11 +150,10 @@ def display_experience(logos_json):
     st.write('\n')
     # st.write("#### Experience")
     thick_line("black")
-    
-    # AP4
+    # M.Sc
     st.write(f'<div class="company-name">{get_logo("Bluebook", logos_json, class_name="company-logo", type="misc")}<b>   Bluebook</b></div>', unsafe_allow_html=True)
     st.write('\n')
-    st.write("*CTO*")
+    st.write("*Hobby project, co-founder*")
     st.write("Stockholm | Present")
     st.markdown(
         """
@@ -162,6 +161,7 @@ def display_experience(logos_json):
         [Read more](https://bluebook.se)
         """
     )
+    blank_space(px=30)
     st.write('---')
 
     # AP4
@@ -259,9 +259,38 @@ def display_experience(logos_json):
     )
 
 def display_activities_and_diplomas(logos_json):
-    st.write("#### Activities")
     thick_line("black")
-    
+    st.write("#### Diplomas")
+    blank_space(px=30)
+
+    st.write("**Henrik Göransson's Sandviken scholarship fund**")
+    st.write("*47 000 SEK*")
+    st.write(
+        """
+        For great academic results during my bachelor's degree.
+        """
+    )
+    st.write('---')
+    st.write("**Mathematics - Falun Educational Fund**")
+    st.write("2250 SEK - Highest amount in the class of 2020")
+    st.write(
+        """
+        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
+        """
+    )
+    st.write('---')
+    st.write("**Ljungsberg Scolarship Fund**")
+    st.write("20 000 SEK")
+    st.write(
+        """
+        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
+        """
+    )
+
+    blank_space(3)
+    st.write("#### Extra curriculars")
+    blank_space(px=30)
+
     # KTH Finance Society
     st.write(f'<div class="company-name">{get_logo("KTHFS", logos_json, class_name="company-logo", type="academic")}<b>KTH Finance Society</b></div>', unsafe_allow_html=True)
     st.write("*Corporate Relations – Board Member*")
@@ -293,32 +322,7 @@ def display_activities_and_diplomas(logos_json):
         Participated in the project group for Fusion 2023. My role evolved around the recruitment of companies for the fair. I recruited seven companies in total, and more than half of my sales resulted in a more extensive package.
         """
     )
-    blank_space(3)
-    st.write("#### Diplomas")
-    thick_line("black")
-    st.write("**Henrik Göransson's Sandviken scholarship fund**")
-    st.write("*47 000 SEK*")
-    st.write(
-        """
-        For great academic results during my bachelor's degree.
-        """
-    )
-    st.write('---')
-    st.write("**Mathematics - Falun Educational Fund**")
-    st.write("2250 SEK - Highest amount in the class of 2020")
-    st.write(
-        """
-        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
-        """
-    )
-    st.write('---')
-    st.write("**Ljungsberg Scolarship Fund**")
-    st.write("20 000 SEK")
-    st.write(
-        """
-        For his engagement in mathematics. Filip tackles hard problems with unconventional and independent solutions.
-        """
-    )
+
 
 def display_skills():
     st.subheader("Software Development")
